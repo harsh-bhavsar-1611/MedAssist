@@ -1,0 +1,108 @@
+@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap");
+
+@theme {
+  --color-slate-50: #f8fafc;
+  --color-slate-100: #f1f5f9;
+  --color-slate-200: #e2e8f0;
+  --color-slate-400: #94a3b8;
+  --color-slate-500: #64748b;
+  --color-slate-600: #475569;
+  --color-slate-800: #1e293b;
+  --color-slate-900: #0f172a;
+
+  --color-blue-50: #eff6ff;
+  --color-blue-100: #dbeafe;
+  --color-blue-400: #60a5fa;
+  --color-blue-500: #3b82f6;
+  --color-blue-600: #2563eb;
+  --color-blue-700: #1d4ed8;
+
+  --color-emerald-600: #059669;
+}
+
+/* 
+   In Tailwind v4, we don't need @tailwind base/components/utilities.
+   The @import "tailwindcss" handles loading the framework.
+   Theme variables are defined in @theme block.
+*/
+
+body {
+  background-color: var(--app-bg);
+  color: var(--app-text);
+  font-family: "Manrope", "Segoe UI", sans-serif;
+  transition: background-color 220ms ease, color 220ms ease;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Sora", "Manrope", "Segoe UI", sans-serif;
+}
+
+:root[data-theme="light"] {
+  --app-bg: #f4f7fb;
+  --app-text: #0f172a;
+  --surface-1: rgba(255, 255, 255, 0.9);
+  --surface-2: rgba(255, 255, 255, 0.72);
+  --surface-border: rgba(148, 163, 184, 0.34);
+  --brand-accent: #0ea5e9;
+  --brand-strong: #2563eb;
+  --brand-ink: #0b1220;
+  --soft-glow: radial-gradient(circle at 20% 20%, rgba(14, 165, 233, 0.22), transparent 40%),
+    radial-gradient(circle at 85% 10%, rgba(37, 99, 235, 0.18), transparent 42%),
+    linear-gradient(160deg, #f8fbff 0%, #f2f7ff 42%, #f5f6ff 100%);
+
+  --color-slate-50: #f8fafc;
+  --color-slate-100: #f1f5f9;
+  --color-slate-200: #e2e8f0;
+  --color-slate-400: #94a3b8;
+  --color-slate-500: #64748b;
+  --color-slate-600: #475569;
+  --color-slate-800: #1e293b;
+  --color-slate-900: #0f172a;
+  --color-blue-600: #2563eb;
+  --color-blue-700: #1d4ed8;
+}
+
+:root[data-theme="dark"] {
+  --app-bg: #060b16;
+  --app-text: #dce7ff;
+  --surface-1: rgba(12, 20, 38, 0.86);
+  --surface-2: rgba(17, 27, 49, 0.66);
+  --surface-border: rgba(148, 163, 184, 0.26);
+  --brand-accent: #38bdf8;
+  --brand-strong: #60a5fa;
+  --brand-ink: #eaf1ff;
+  --soft-glow:
+    radial-gradient(circle at 12% 18%, rgba(56, 189, 248, 0.2), transparent 36%),
+    radial-gradient(circle at 88% 82%, rgba(59, 130, 246, 0.16), transparent 40%),
+    linear-gradient(160deg, #060b16 0%, #0b1325 44%, #0f1a31 100%);
+
+  --color-slate-50: #0b1325;
+  --color-slate-100: #111b31;
+  --color-slate-200: #1c2a46;
+  --color-slate-400: #8194b7;
+  --color-slate-500: #9daed0;
+  --color-slate-600: #b7c7e3;
+  --color-slate-800: #d5e0f3;
+  --color-slate-900: #eaf1ff;
+  --color-blue-600: #3b82f6;
+  --color-blue-700: #2563eb;
+}
+
+.app-backdrop {
+  background-image: var(--soft-glow);
+}
+
+.frost-panel {
+  background: var(--surface-2);
+  border: 1px solid var(--surface-border);
+  backdrop-filter: blur(16px);
+}
+
+.frost-solid {
+  background: var(--surface-1);
+  border: 1px solid var(--surface-border);
+}

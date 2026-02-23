@@ -1,0 +1,360 @@
+[
+  {
+    "id": 1,
+    "symptoms": ["fever", "headache", "body pain", "fatigue"],
+    "possible_diagnosis": "Viral infection",
+    "advice": "Rest well, drink fluids, and monitor temperature",
+    "medications": ["paracetamol"]
+  },
+  {
+    "id": 2,
+    "symptoms": ["cough", "sore throat", "runny nose", "sneezing"],
+    "possible_diagnosis": "Common cold",
+    "advice": "Warm fluids and rest",
+    "medications": ["antihistamine", "paracetamol"]
+  },
+  {
+    "id": 3,
+    "symptoms": ["chest pain", "shortness of breath", "sweating"],
+    "possible_diagnosis": "Heart related issue",
+    "advice": "Seek emergency medical care immediately",
+    "medications": ["aspirin"]
+  },
+  {
+    "id": 4,
+    "symptoms": ["abdominal pain", "nausea", "vomiting"],
+    "possible_diagnosis": "Food poisoning",
+    "advice": "Stay hydrated and avoid solid food temporarily",
+    "medications": ["oral rehydration salts"]
+  },
+  {
+    "id": 5,
+    "symptoms": ["frequent urination", "burning sensation while urinating", "lower abdomen pain"],
+    "possible_diagnosis": "Urinary tract infection",
+    "advice": "Drink plenty of water and consult doctor",
+    "medications": ["antibiotics"]
+  },
+  {
+    "id": 6,
+    "symptoms": ["persistent cough", "chest congestion", "mucus"],
+    "possible_diagnosis": "Bronchitis",
+    "advice": "Rest and warm fluids",
+    "medications": ["cough syrup"]
+  },
+  {
+    "id": 7,
+    "symptoms": ["itchy eyes", "sneezing", "nasal congestion"],
+    "possible_diagnosis": "Allergic rhinitis",
+    "advice": "Avoid allergens",
+    "medications": ["antihistamines"]
+  },
+  {
+    "id": 8,
+    "symptoms": ["joint pain", "morning stiffness", "swelling"],
+    "possible_diagnosis": "Arthritis",
+    "advice": "Light exercise and warm compress",
+    "medications": ["pain relievers"]
+  },
+  {
+    "id": 9,
+    "symptoms": ["thirst", "frequent urination", "fatigue"],
+    "possible_diagnosis": "Diabetes symptoms",
+    "advice": "Check blood sugar levels",
+    "medications": ["insulin", "oral antidiabetics"]
+  },
+  {
+    "id": 10,
+    "symptoms": ["blurred vision", "eye pain", "headache"],
+    "possible_diagnosis": "Eye strain",
+    "advice": "Take screen breaks",
+    "medications": ["eye drops"]
+  },
+
+  {
+    "id": 11,
+    "symptoms": ["fever", "rash", "joint pain"],
+    "possible_diagnosis": "Dengue fever",
+    "advice": "Hydration and rest",
+    "medications": ["paracetamol"]
+  },
+  {
+    "id": 12,
+    "symptoms": ["severe headache", "neck stiffness", "fever"],
+    "possible_diagnosis": "Meningitis",
+    "advice": "Emergency medical attention",
+    "medications": ["antibiotics"]
+  },
+  {
+    "id": 13,
+    "symptoms": ["shortness of breath", "wheezing", "chest tightness"],
+    "possible_diagnosis": "Asthma attack",
+    "advice": "Use inhaler immediately",
+    "medications": ["bronchodilators"]
+  },
+  {
+    "id": 14,
+    "symptoms": ["stomach bloating", "gas", "discomfort"],
+    "possible_diagnosis": "Indigestion",
+    "advice": "Avoid heavy meals",
+    "medications": ["antacids"]
+  },
+  {
+    "id": 15,
+    "symptoms": ["frequent headaches", "sensitivity to light", "nausea"],
+    "possible_diagnosis": "Migraine",
+    "advice": "Rest in dark room",
+    "medications": ["pain relievers"]
+  },
+
+  {
+    "id": 16,
+    "symptoms": ["hair loss", "fatigue", "pale skin"],
+    "possible_diagnosis": "Anemia",
+    "advice": "Increase iron intake",
+    "medications": ["iron supplements"]
+  },
+  {
+    "id": 17,
+    "symptoms": ["sore throat", "difficulty swallowing", "fever"],
+    "possible_diagnosis": "Throat infection",
+    "advice": "Warm salt water gargle",
+    "medications": ["antibiotics"]
+  },
+  {
+    "id": 18,
+    "symptoms": ["back pain", "stiffness", "limited movement"],
+    "possible_diagnosis": "Muscle strain",
+    "advice": "Rest and apply ice",
+    "medications": ["pain relievers"]
+  },
+  {
+    "id": 19,
+    "symptoms": ["diarrhea", "cramps", "dehydration"],
+    "possible_diagnosis": "Gastroenteritis",
+    "advice": "Drink ORS frequently",
+    "medications": ["oral rehydration salts"]
+  },
+  {
+    "id": 20,
+    "symptoms": ["weight loss", "night sweats", "persistent cough"],
+    "possible_diagnosis": "Tuberculosis symptoms",
+    "advice": "Consult doctor urgently",
+    "medications": ["anti TB drugs"]
+  },
+
+  {
+    "id": 21,
+    "symptoms": ["itching skin", "red patches", "dryness"],
+    "possible_diagnosis": "Eczema",
+    "advice": "Moisturize skin",
+    "medications": ["topical creams"]
+  },
+  {
+    "id": 22,
+    "symptoms": ["ear pain", "discharge", "hearing difficulty"],
+    "possible_diagnosis": "Ear infection",
+    "advice": "Keep ear dry",
+    "medications": ["antibiotic drops"]
+  },
+  {
+    "id": 23,
+    "symptoms": ["frequent yawning", "daytime sleepiness", "fatigue"],
+    "possible_diagnosis": "Sleep deprivation",
+    "advice": "Maintain sleep schedule",
+    "medications": ["none"]
+  },
+  {
+    "id": 24,
+    "symptoms": ["dry mouth", "bad breath", "mouth sores"],
+    "possible_diagnosis": "Dehydration",
+    "advice": "Drink more water",
+    "medications": ["fluids"]
+  },
+  {
+    "id": 25,
+    "symptoms": ["swollen glands", "fever", "sore throat"],
+    "possible_diagnosis": "Mononucleosis",
+    "advice": "Rest and hydration",
+    "medications": ["pain relievers"]
+  },
+
+  {
+    "id": 26,
+    "symptoms": ["shaking", "fast heartbeat", "anxiety"],
+    "possible_diagnosis": "Panic attack",
+    "advice": "Practice deep breathing",
+    "medications": ["none"]
+  },
+  {
+    "id": 27,
+    "symptoms": ["yellow eyes", "dark urine", "fatigue"],
+    "possible_diagnosis": "Jaundice",
+    "advice": "Consult physician",
+    "medications": ["supportive treatment"]
+  },
+  {
+    "id": 28,
+    "symptoms": ["cold hands", "pale skin", "numbness"],
+    "possible_diagnosis": "Poor circulation",
+    "advice": "Stay warm and active",
+    "medications": ["none"]
+  },
+  {
+    "id": 29,
+    "symptoms": ["frequent thirst", "dry skin", "constipation"],
+    "possible_diagnosis": "Dehydration mild",
+    "advice": "Increase fluid intake",
+    "medications": ["water"]
+  },
+  {
+    "id": 30,
+    "symptoms": ["memory problems", "confusion", "difficulty concentrating"],
+    "possible_diagnosis": "Mental fatigue",
+    "advice": "Rest and reduce stress",
+    "medications": ["none"]
+  },
+
+  {
+    "id": 31,
+    "symptoms": ["sudden weight gain", "swelling ankles", "fatigue"],
+    "possible_diagnosis": "Fluid retention",
+    "advice": "Reduce salt intake",
+    "medications": ["diuretics"]
+  },
+  {
+    "id": 32,
+    "symptoms": ["chills", "high fever", "sweating cycles"],
+    "possible_diagnosis": "Malaria",
+    "advice": "Immediate medical treatment",
+    "medications": ["antimalarial drugs"]
+  },
+  {
+    "id": 33,
+    "symptoms": ["dry cough", "fever", "loss of taste"],
+    "possible_diagnosis": "Viral respiratory infection",
+    "advice": "Isolation and rest",
+    "medications": ["paracetamol"]
+  },
+  {
+    "id": 34,
+    "symptoms": ["swollen joints", "redness", "warm skin"],
+    "possible_diagnosis": "Joint inflammation",
+    "advice": "Apply cold packs",
+    "medications": ["anti inflammatory drugs"]
+  },
+  {
+    "id": 35,
+    "symptoms": ["burning chest", "acid taste", "burping"],
+    "possible_diagnosis": "Acid reflux",
+    "advice": "Avoid spicy food",
+    "medications": ["antacids"]
+  },
+
+  {
+    "id": 36,
+    "symptoms": ["itchy scalp", "flaky skin", "hair fall"],
+    "possible_diagnosis": "Dandruff",
+    "advice": "Use medicated shampoo",
+    "medications": ["anti dandruff shampoo"]
+  },
+  {
+    "id": 37,
+    "symptoms": ["frequent nosebleeds", "dry air exposure"],
+    "possible_diagnosis": "Nasal dryness",
+    "advice": "Use humidifier",
+    "medications": ["saline spray"]
+  },
+  {
+    "id": 38,
+    "symptoms": ["nausea", "morning vomiting", "fatigue"],
+    "possible_diagnosis": "Early pregnancy symptoms",
+    "advice": "Consult doctor",
+    "medications": ["prenatal vitamins"]
+  },
+  {
+    "id": 39,
+    "symptoms": ["blurred speech", "weakness on one side", "confusion"],
+    "possible_diagnosis": "Stroke symptoms",
+    "advice": "Emergency treatment required",
+    "medications": ["hospital care"]
+  },
+  {
+    "id": 40,
+    "symptoms": ["muscle cramps", "dehydration", "weakness"],
+    "possible_diagnosis": "Electrolyte imbalance",
+    "advice": "Drink electrolyte fluids",
+    "medications": ["ORS"]
+  },
+
+  {
+    "id": 41,
+    "symptoms": ["itchy rash", "blisters", "burning pain"],
+    "possible_diagnosis": "Skin infection",
+    "advice": "Keep area clean",
+    "medications": ["antibiotic ointment"]
+  },
+  {
+    "id": 42,
+    "symptoms": ["frequent hiccups", "stomach discomfort"],
+    "possible_diagnosis": "Gastric irritation",
+    "advice": "Eat slowly",
+    "medications": ["antacids"]
+  },
+  {
+    "id": 43,
+    "symptoms": ["excessive sweating", "fast pulse", "nervousness"],
+    "possible_diagnosis": "Hyperthyroidism symptoms",
+    "advice": "Consult endocrinologist",
+    "medications": ["thyroid medications"]
+  },
+  {
+    "id": 44,
+    "symptoms": ["dry eyes", "burning sensation", "redness"],
+    "possible_diagnosis": "Dry eye syndrome",
+    "advice": "Use artificial tears",
+    "medications": ["eye drops"]
+  },
+  {
+    "id": 45,
+    "symptoms": ["joint cracking sounds", "mild pain"],
+    "possible_diagnosis": "Joint wear",
+    "advice": "Gentle exercise",
+    "medications": ["pain relievers"]
+  },
+
+  {
+    "id": 46,
+    "symptoms": ["constant hunger", "weight gain", "fatigue"],
+    "possible_diagnosis": "Hormonal imbalance",
+    "advice": "Medical evaluation",
+    "medications": ["hormone therapy"]
+  },
+  {
+    "id": 47,
+    "symptoms": ["tingling fingers", "numbness", "weak grip"],
+    "possible_diagnosis": "Nerve compression",
+    "advice": "Rest affected area",
+    "medications": ["pain relievers"]
+  },
+  {
+    "id": 48,
+    "symptoms": ["red eyes", "itching", "watery discharge"],
+    "possible_diagnosis": "Conjunctivitis",
+    "advice": "Avoid touching eyes",
+    "medications": ["eye drops"]
+  },
+  {
+    "id": 49,
+    "symptoms": ["stomach pain after meals", "bloating", "nausea"],
+    "possible_diagnosis": "Gastritis",
+    "advice": "Avoid acidic food",
+    "medications": ["antacids"]
+  },
+  {
+    "id": 50,
+    "symptoms": ["frequent colds", "weak immunity", "fatigue"],
+    "possible_diagnosis": "Low immunity",
+    "advice": "Healthy diet and sleep",
+    "medications": ["vitamin supplements"]
+  }
+]

@@ -1,0 +1,39 @@
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Env/secrets
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.sqlite3
+.venv/
+venv/
+Backend/venv/
+.pytest_cache/
+.mypy_cache/
+
+# Node
+node_modules/
+Frontend/node_modules/
+Frontend/dist/
+
+# Logs/temp
+*.log
+*.tmp
+*.bak
+
+# Build artifacts
+build/
+dist/
+
+# App runtime output
+Backend/backend/chat/data/ocr_debug/
