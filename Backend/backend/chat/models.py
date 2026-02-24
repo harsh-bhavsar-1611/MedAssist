@@ -58,3 +58,12 @@ class MedicalDataVersion(models.Model):
     snapshot = models.JSONField(default=list, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
+
+class MedicalReportAnalysis(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="medical_report_analyses")
+    title = models.CharField(max_length=180, blank=True, default="")
+    file_names = models.JSONField(default=list, blank=True)
+    extracted_text = models.TextField(blank=True, default="")
+    analysis = models.TextField(blank=True, default="")
+    warnings = models.JSONField(default=list, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)

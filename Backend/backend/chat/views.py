@@ -18,8 +18,9 @@ from rest_framework.permissions import AllowAny, IsAuthenticated, IsAdminUser
 from .ai_engine.llm_engine import generate_ai_response
 from .ai_engine import llm_engine
 from .api_utils import api_error, api_success
+from .document_parser import parse_uploaded_attachments, persist_ocr_debug_output
 from .google_auth import GoogleTokenError, verify_google_id_token
-from .models import AdminAuditLog, ChatMessage, ChatSession, MedicalDataVersion, UserProfile
+from .models import AdminAuditLog, ChatMessage, ChatSession, MedicalDataVersion, MedicalReportAnalysis, UserProfile
 
 User = get_user_model()
 ALLOWED_THEMES = {"light", "dark"}
@@ -133,6 +134,47 @@ def _log_admin_action(actor, action, entity_type="", entity_id="", details=None)
     except Exception:
         # Never break main flow because logging fails.
         pass
+
+
+def _analyze_report_text_with_model(extracted_text: str) -> str:
+    completion = llm_engine.client.chat.completions.create(
+        model="meta-llama/llama-4-scout-17b-16e-instruct",
+        messages=[
+            {
+                "role": "system",
+                "content": """
+You are a medical report analysis assistant.
+Provide concise, structured output with sections:
+1) Key Findings
+2) Potential Concerns
+3) Suggested Follow-up Questions for Doctor
+4) Lifestyle/Monitoring Suggestions
+5) Safety Note
+
+Rules:
+- Do not give final diagnosis.
+- If data is unclear, say what is missing.
+- Keep output patient-friendly.
+""",
+            },
+            {"role": "user", "content": f"Analyze this medical report text:\n\n{extracted_text}"},
+        ],
+        temperature=0.2,
+        max_completion_tokens=600,
+        top_p=1,
+    )
+    return (completion.choices[0].message.content or "").strip()
+
+
+def _public_report_payload(report):
+    return {
+        "id": report.id,
+        "title": report.title or f"Report {report.id}",
+        "file_names": report.file_names or [],
+        "analysis": report.analysis or "",
+        "warnings": report.warnings or [],
+        "created_at": report.created_at.isoformat() if report.created_at else None,
+    }
 
 
 @api_view(["GET"])
@@ -566,6 +608,91 @@ def get_chat_history(request, session_id):
         return api_error(message="Session not found.", status=404, code="NOT_FOUND")
     except Exception:
         return api_error(message="Could not load chat history.", status=500, code="SERVER_ERROR")
+
+
+@api_view(["GET"])
+@permission_classes([IsAuthenticated])
+def list_report_analyses_api(request):
+    reports = MedicalReportAnalysis.objects.filter(user=request.user).order_by("-created_at")
+    return api_success(data={"reports": [_public_report_payload(report) for report in reports[:50]]})
+
+
+@api_view(["GET", "DELETE"])
+@permission_classes([IsAuthenticated])
+def report_analysis_detail_api(request, report_id):
+    try:
+        report = get_object_or_404(MedicalReportAnalysis, id=report_id, user=request.user)
+        if request.method == "DELETE":
+            report.delete()
+            return api_success(message="Report deleted successfully.")
+        payload = _public_report_payload(report)
+        payload["extracted_text"] = report.extracted_text or ""
+        return api_success(data={"report": payload})
+    except Http404:
+        return api_error(message="Report not found.", status=404, code="NOT_FOUND")
+    except Exception:
+        return api_error(message="Could not load report.", status=500, code="SERVER_ERROR")
+
+
+@api_view(["POST"])
+@permission_classes([IsAuthenticated])
+def analyze_report_api(request):
+    try:
+        uploaded_files = request.FILES.getlist("files")
+        if not uploaded_files:
+            return api_error(message="Please upload at least one report file.", status=400, code="VALIDATION_ERROR")
+
+        parsed = parse_uploaded_attachments(uploaded_files)
+        if not parsed.get("ok"):
+            return api_error(message=parsed.get("error", "Could not parse uploaded files."), status=400, code="VALIDATION_ERROR")
+
+        extracted_docs = parsed.get("extracted_docs", [])
+        warnings = parsed.get("warnings", [])
+        extracted_details = parsed.get("extracted_details", [])
+        used_files = parsed.get("used_files", [])
+
+        combined_text = "\n\n".join(
+            [f"FILE: {doc.get('name', 'report')}\n{doc.get('text', '')}" for doc in extracted_docs]
+        ).strip()
+        if not combined_text:
+            return api_error(
+                message="Could not extract readable text from uploaded report(s).",
+                status=400,
+                code="EXTRACTION_FAILED",
+                errors={"warnings": warnings},
+            )
+
+        analysis = _analyze_report_text_with_model(combined_text)
+        if not analysis:
+            analysis = "Could not generate report analysis at the moment. Please try again."
+
+        title = (request.data.get("title") or "").strip()
+        if not title:
+            first_file = used_files[0] if used_files else "Medical Report"
+            title = f"Analysis - {first_file}"
+
+        report = MedicalReportAnalysis.objects.create(
+            user=request.user,
+            title=title[:180],
+            file_names=used_files,
+            extracted_text=combined_text,
+            analysis=analysis,
+            warnings=warnings,
+        )
+
+        try:
+            persist_ocr_debug_output(
+                session_id=f"report_{report.id}",
+                user_id=request.user.id,
+                extracted_details=extracted_details,
+                warnings=warnings,
+            )
+        except Exception:
+            pass
+
+        return api_success(data={"report": _public_report_payload(report)}, message="Report analyzed successfully.")
+    except Exception:
+        return api_error(message="Could not analyze uploaded report.", status=500, code="SERVER_ERROR")
 
 
 @api_view(["GET"])

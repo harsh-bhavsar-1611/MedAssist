@@ -4,6 +4,7 @@ import ChatArea from './ChatArea';
 import Navbar from './Navbar';
 import ProfilePage from './ProfilePage';
 import SettingsPage from './SettingsPage';
+import ReportsPage from './ReportsPage';
 import { cn } from '../lib/utils';
 import { apiFetch, ApiError } from '../lib/api';
 
@@ -81,6 +82,11 @@ const Layout = ({ user, onUserChange }) => {
     if (!isDesktop) setIsSidebarOpen(false);
   };
 
+  const handleOpenReports = () => {
+    setActiveView('reports');
+    if (!isDesktop) setIsSidebarOpen(false);
+  };
+
   const handleThemeUpdated = useCallback((theme) => {
     setCurrentTheme(theme);
     onUserChange((prev) => ({ ...prev, preferred_theme: theme }));
@@ -129,6 +135,8 @@ const Layout = ({ user, onUserChange }) => {
         onLogout={handleLogout}
         onOpenProfile={handleOpenProfile}
         onOpenSettings={handleOpenSettings}
+        onOpenReports={handleOpenReports}
+        activeView={activeView}
         onOpenAdmin={() => {
           window.history.pushState({}, "", "/admin");
           window.dispatchEvent(new PopStateEvent("popstate"));
@@ -189,6 +197,7 @@ const Layout = ({ user, onUserChange }) => {
           {activeView === 'settings' ? (
             <SettingsPage preferredTheme={currentTheme} onThemeUpdated={handleThemeUpdated} onBack={() => setActiveView('chat')} />
           ) : null}
+          {activeView === 'reports' ? <ReportsPage onBack={() => setActiveView('chat')} /> : null}
         </main>
       </div>
     </div>

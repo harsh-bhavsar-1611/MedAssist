@@ -64,6 +64,9 @@ h4 {
   --color-slate-900: #0f172a;
   --color-blue-600: #2563eb;
   --color-blue-700: #1d4ed8;
+  --scrollbar-track: rgba(226, 232, 240, 0.6);
+  --scrollbar-thumb: linear-gradient(180deg, rgba(14, 165, 233, 0.75), rgba(37, 99, 235, 0.75));
+  --scrollbar-thumb-border: rgba(255, 255, 255, 0.75);
 }
 
 :root[data-theme="dark"] {
@@ -90,6 +93,9 @@ h4 {
   --color-slate-900: #eaf1ff;
   --color-blue-600: #3b82f6;
   --color-blue-700: #2563eb;
+  --scrollbar-track: rgba(28, 42, 70, 0.72);
+  --scrollbar-thumb: linear-gradient(180deg, rgba(56, 189, 248, 0.75), rgba(59, 130, 246, 0.75));
+  --scrollbar-thumb-border: rgba(11, 19, 37, 0.85);
 }
 
 .app-backdrop {
@@ -105,4 +111,30 @@ h4 {
 .frost-solid {
   background: var(--surface-1);
   border: 1px solid var(--surface-border);
+}
+
+/* Modern global scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(37, 99, 235, 0.7) var(--scrollbar-track);
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+  border-radius: 999px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border: 2px solid var(--scrollbar-thumb-border);
+  border-radius: 999px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  filter: brightness(1.08);
 }

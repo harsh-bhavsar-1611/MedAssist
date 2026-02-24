@@ -1,360 +1,133 @@
 [
-  {
-    "id": 1,
-    "symptoms": ["fever", "headache", "body pain", "fatigue"],
-    "possible_diagnosis": "Viral infection",
-    "advice": "Rest well, drink fluids, and monitor temperature",
-    "medications": ["paracetamol"]
-  },
-  {
-    "id": 2,
-    "symptoms": ["cough", "sore throat", "runny nose", "sneezing"],
-    "possible_diagnosis": "Common cold",
-    "advice": "Warm fluids and rest",
-    "medications": ["antihistamine", "paracetamol"]
-  },
-  {
-    "id": 3,
-    "symptoms": ["chest pain", "shortness of breath", "sweating"],
-    "possible_diagnosis": "Heart related issue",
-    "advice": "Seek emergency medical care immediately",
-    "medications": ["aspirin"]
-  },
-  {
-    "id": 4,
-    "symptoms": ["abdominal pain", "nausea", "vomiting"],
-    "possible_diagnosis": "Food poisoning",
-    "advice": "Stay hydrated and avoid solid food temporarily",
-    "medications": ["oral rehydration salts"]
-  },
-  {
-    "id": 5,
-    "symptoms": ["frequent urination", "burning sensation while urinating", "lower abdomen pain"],
-    "possible_diagnosis": "Urinary tract infection",
-    "advice": "Drink plenty of water and consult doctor",
-    "medications": ["antibiotics"]
-  },
-  {
-    "id": 6,
-    "symptoms": ["persistent cough", "chest congestion", "mucus"],
-    "possible_diagnosis": "Bronchitis",
-    "advice": "Rest and warm fluids",
-    "medications": ["cough syrup"]
-  },
-  {
-    "id": 7,
-    "symptoms": ["itchy eyes", "sneezing", "nasal congestion"],
-    "possible_diagnosis": "Allergic rhinitis",
-    "advice": "Avoid allergens",
-    "medications": ["antihistamines"]
-  },
-  {
-    "id": 8,
-    "symptoms": ["joint pain", "morning stiffness", "swelling"],
-    "possible_diagnosis": "Arthritis",
-    "advice": "Light exercise and warm compress",
-    "medications": ["pain relievers"]
-  },
-  {
-    "id": 9,
-    "symptoms": ["thirst", "frequent urination", "fatigue"],
-    "possible_diagnosis": "Diabetes symptoms",
-    "advice": "Check blood sugar levels",
-    "medications": ["insulin", "oral antidiabetics"]
-  },
-  {
-    "id": 10,
-    "symptoms": ["blurred vision", "eye pain", "headache"],
-    "possible_diagnosis": "Eye strain",
-    "advice": "Take screen breaks",
-    "medications": ["eye drops"]
-  },
+  {"id":1,"category":"Income Tax","topic":"Tax Slabs","question":"What are income tax slabs in India?","answer":"Progressive tax rates based on income under old and new regime."},
+  {"id":2,"category":"Income Tax","topic":"ITR Filing","question":"Who must file income tax return?","answer":"Any person with taxable income must file annually."},
+  {"id":3,"category":"Income Tax","topic":"PAN","question":"What is PAN used for?","answer":"Permanent Account Number used for tax tracking."},
+  {"id":4,"category":"Income Tax","topic":"Residential Status","question":"Why residential status matters?","answer":"Determines taxable income in India."},
+  {"id":5,"category":"Income Tax","topic":"Section 80C","question":"What qualifies under 80C?","answer":"PPF, ELSS, insurance, EPF etc."},
 
-  {
-    "id": 11,
-    "symptoms": ["fever", "rash", "joint pain"],
-    "possible_diagnosis": "Dengue fever",
-    "advice": "Hydration and rest",
-    "medications": ["paracetamol"]
-  },
-  {
-    "id": 12,
-    "symptoms": ["severe headache", "neck stiffness", "fever"],
-    "possible_diagnosis": "Meningitis",
-    "advice": "Emergency medical attention",
-    "medications": ["antibiotics"]
-  },
-  {
-    "id": 13,
-    "symptoms": ["shortness of breath", "wheezing", "chest tightness"],
-    "possible_diagnosis": "Asthma attack",
-    "advice": "Use inhaler immediately",
-    "medications": ["bronchodilators"]
-  },
-  {
-    "id": 14,
-    "symptoms": ["stomach bloating", "gas", "discomfort"],
-    "possible_diagnosis": "Indigestion",
-    "advice": "Avoid heavy meals",
-    "medications": ["antacids"]
-  },
-  {
-    "id": 15,
-    "symptoms": ["frequent headaches", "sensitivity to light", "nausea"],
-    "possible_diagnosis": "Migraine",
-    "advice": "Rest in dark room",
-    "medications": ["pain relievers"]
-  },
+  {"id":6,"category":"Income Tax","topic":"HRA Exemption","question":"What is HRA exemption?","answer":"Tax relief on house rent allowance."},
+  {"id":7,"category":"Income Tax","topic":"Standard Deduction","question":"What is standard deduction?","answer":"Flat deduction from salary income."},
+  {"id":8,"category":"Income Tax","topic":"Advance Tax","question":"What is advance tax?","answer":"Tax paid in installments during year."},
+  {"id":9,"category":"Income Tax","topic":"Self Assessment Tax","question":"What is self assessment tax?","answer":"Tax paid after computing final liability."},
+  {"id":10,"category":"Income Tax","topic":"Refund","question":"When tax refund arises?","answer":"When excess tax is paid."},
 
-  {
-    "id": 16,
-    "symptoms": ["hair loss", "fatigue", "pale skin"],
-    "possible_diagnosis": "Anemia",
-    "advice": "Increase iron intake",
-    "medications": ["iron supplements"]
-  },
-  {
-    "id": 17,
-    "symptoms": ["sore throat", "difficulty swallowing", "fever"],
-    "possible_diagnosis": "Throat infection",
-    "advice": "Warm salt water gargle",
-    "medications": ["antibiotics"]
-  },
-  {
-    "id": 18,
-    "symptoms": ["back pain", "stiffness", "limited movement"],
-    "possible_diagnosis": "Muscle strain",
-    "advice": "Rest and apply ice",
-    "medications": ["pain relievers"]
-  },
-  {
-    "id": 19,
-    "symptoms": ["diarrhea", "cramps", "dehydration"],
-    "possible_diagnosis": "Gastroenteritis",
-    "advice": "Drink ORS frequently",
-    "medications": ["oral rehydration salts"]
-  },
-  {
-    "id": 20,
-    "symptoms": ["weight loss", "night sweats", "persistent cough"],
-    "possible_diagnosis": "Tuberculosis symptoms",
-    "advice": "Consult doctor urgently",
-    "medications": ["anti TB drugs"]
-  },
+  {"id":11,"category":"GST","topic":"GST Registration","question":"Who must register under GST?","answer":"Businesses crossing turnover threshold."},
+  {"id":12,"category":"GST","topic":"GSTIN","question":"What is GSTIN?","answer":"Unique GST identification number."},
+  {"id":13,"category":"GST","topic":"GSTR-1","question":"What is GSTR-1?","answer":"Sales return under GST."},
+  {"id":14,"category":"GST","topic":"GSTR-3B","question":"What is GSTR-3B?","answer":"Monthly tax payment return."},
+  {"id":15,"category":"GST","topic":"ITC","question":"What is Input Tax Credit?","answer":"Credit of tax paid on purchases."},
 
-  {
-    "id": 21,
-    "symptoms": ["itching skin", "red patches", "dryness"],
-    "possible_diagnosis": "Eczema",
-    "advice": "Moisturize skin",
-    "medications": ["topical creams"]
-  },
-  {
-    "id": 22,
-    "symptoms": ["ear pain", "discharge", "hearing difficulty"],
-    "possible_diagnosis": "Ear infection",
-    "advice": "Keep ear dry",
-    "medications": ["antibiotic drops"]
-  },
-  {
-    "id": 23,
-    "symptoms": ["frequent yawning", "daytime sleepiness", "fatigue"],
-    "possible_diagnosis": "Sleep deprivation",
-    "advice": "Maintain sleep schedule",
-    "medications": ["none"]
-  },
-  {
-    "id": 24,
-    "symptoms": ["dry mouth", "bad breath", "mouth sores"],
-    "possible_diagnosis": "Dehydration",
-    "advice": "Drink more water",
-    "medications": ["fluids"]
-  },
-  {
-    "id": 25,
-    "symptoms": ["swollen glands", "fever", "sore throat"],
-    "possible_diagnosis": "Mononucleosis",
-    "advice": "Rest and hydration",
-    "medications": ["pain relievers"]
-  },
+  {"id":16,"category":"GST","topic":"Reverse Charge","question":"What is reverse charge?","answer":"Tax paid by recipient instead of supplier."},
+  {"id":17,"category":"GST","topic":"Composite Scheme","question":"What is composition scheme?","answer":"Lower tax rate for small businesses."},
+  {"id":18,"category":"GST","topic":"E-way Bill","question":"What is e-way bill?","answer":"Document for goods movement."},
+  {"id":19,"category":"GST","topic":"HSN Code","question":"What is HSN code?","answer":"Classification of goods for GST."},
+  {"id":20,"category":"GST","topic":"Late Fee","question":"Penalty for late GST return?","answer":"Daily fee till filing."},
 
-  {
-    "id": 26,
-    "symptoms": ["shaking", "fast heartbeat", "anxiety"],
-    "possible_diagnosis": "Panic attack",
-    "advice": "Practice deep breathing",
-    "medications": ["none"]
-  },
-  {
-    "id": 27,
-    "symptoms": ["yellow eyes", "dark urine", "fatigue"],
-    "possible_diagnosis": "Jaundice",
-    "advice": "Consult physician",
-    "medications": ["supportive treatment"]
-  },
-  {
-    "id": 28,
-    "symptoms": ["cold hands", "pale skin", "numbness"],
-    "possible_diagnosis": "Poor circulation",
-    "advice": "Stay warm and active",
-    "medications": ["none"]
-  },
-  {
-    "id": 29,
-    "symptoms": ["frequent thirst", "dry skin", "constipation"],
-    "possible_diagnosis": "Dehydration mild",
-    "advice": "Increase fluid intake",
-    "medications": ["water"]
-  },
-  {
-    "id": 30,
-    "symptoms": ["memory problems", "confusion", "difficulty concentrating"],
-    "possible_diagnosis": "Mental fatigue",
-    "advice": "Rest and reduce stress",
-    "medications": ["none"]
-  },
+  {"id":21,"category":"Corporate Tax","topic":"Corporate Rate","question":"What is corporate tax rate?","answer":"22% or 15% for eligible companies."},
+  {"id":22,"category":"Corporate Tax","topic":"MAT","question":"What is Minimum Alternate Tax?","answer":"Minimum tax on book profits."},
+  {"id":23,"category":"Corporate Tax","topic":"Dividend Tax","question":"Is dividend taxable?","answer":"Taxable in hands of shareholder."},
+  {"id":24,"category":"Corporate Tax","topic":"Loss Carry Forward","question":"Can business losses be carried forward?","answer":"Yes as per Income Tax Act rules."},
+  {"id":25,"category":"Corporate Tax","topic":"Depreciation","question":"What is depreciation?","answer":"Reduction in asset value allowed as expense."},
 
-  {
-    "id": 31,
-    "symptoms": ["sudden weight gain", "swelling ankles", "fatigue"],
-    "possible_diagnosis": "Fluid retention",
-    "advice": "Reduce salt intake",
-    "medications": ["diuretics"]
-  },
-  {
-    "id": 32,
-    "symptoms": ["chills", "high fever", "sweating cycles"],
-    "possible_diagnosis": "Malaria",
-    "advice": "Immediate medical treatment",
-    "medications": ["antimalarial drugs"]
-  },
-  {
-    "id": 33,
-    "symptoms": ["dry cough", "fever", "loss of taste"],
-    "possible_diagnosis": "Viral respiratory infection",
-    "advice": "Isolation and rest",
-    "medications": ["paracetamol"]
-  },
-  {
-    "id": 34,
-    "symptoms": ["swollen joints", "redness", "warm skin"],
-    "possible_diagnosis": "Joint inflammation",
-    "advice": "Apply cold packs",
-    "medications": ["anti inflammatory drugs"]
-  },
-  {
-    "id": 35,
-    "symptoms": ["burning chest", "acid taste", "burping"],
-    "possible_diagnosis": "Acid reflux",
-    "advice": "Avoid spicy food",
-    "medications": ["antacids"]
-  },
+  {"id":26,"category":"TDS","topic":"Salary TDS","question":"Is TDS deducted on salary?","answer":"Yes based on slab rates."},
+  {"id":27,"category":"TDS","topic":"Rent TDS","question":"TDS on rent?","answer":"10% if above limit."},
+  {"id":28,"category":"TDS","topic":"Interest TDS","question":"TDS on interest income?","answer":"Yes by banks."},
+  {"id":29,"category":"TDS","topic":"Form 16","question":"What is Form 16?","answer":"TDS certificate for salary."},
+  {"id":30,"category":"TDS","topic":"Form 26Q","question":"What is Form 26Q?","answer":"Quarterly TDS return."},
 
-  {
-    "id": 36,
-    "symptoms": ["itchy scalp", "flaky skin", "hair fall"],
-    "possible_diagnosis": "Dandruff",
-    "advice": "Use medicated shampoo",
-    "medications": ["anti dandruff shampoo"]
-  },
-  {
-    "id": 37,
-    "symptoms": ["frequent nosebleeds", "dry air exposure"],
-    "possible_diagnosis": "Nasal dryness",
-    "advice": "Use humidifier",
-    "medications": ["saline spray"]
-  },
-  {
-    "id": 38,
-    "symptoms": ["nausea", "morning vomiting", "fatigue"],
-    "possible_diagnosis": "Early pregnancy symptoms",
-    "advice": "Consult doctor",
-    "medications": ["prenatal vitamins"]
-  },
-  {
-    "id": 39,
-    "symptoms": ["blurred speech", "weakness on one side", "confusion"],
-    "possible_diagnosis": "Stroke symptoms",
-    "advice": "Emergency treatment required",
-    "medications": ["hospital care"]
-  },
-  {
-    "id": 40,
-    "symptoms": ["muscle cramps", "dehydration", "weakness"],
-    "possible_diagnosis": "Electrolyte imbalance",
-    "advice": "Drink electrolyte fluids",
-    "medications": ["ORS"]
-  },
+  {"id":31,"category":"Capital Gains","topic":"Short Term","question":"Short term capital gain tax?","answer":"Tax on short holding assets."},
+  {"id":32,"category":"Capital Gains","topic":"Long Term","question":"Long term capital gain tax?","answer":"Tax on long holding period assets."},
+  {"id":33,"category":"Capital Gains","topic":"Property Sale","question":"Tax on selling property?","answer":"Capital gains tax applicable."},
+  {"id":34,"category":"Capital Gains","topic":"Exemption 54","question":"What is Section 54?","answer":"Reinvestment relief on house sale."},
+  {"id":35,"category":"Capital Gains","topic":"Indexation","question":"What is indexation benefit?","answer":"Inflation adjusted cost benefit."},
 
-  {
-    "id": 41,
-    "symptoms": ["itchy rash", "blisters", "burning pain"],
-    "possible_diagnosis": "Skin infection",
-    "advice": "Keep area clean",
-    "medications": ["antibiotic ointment"]
-  },
-  {
-    "id": 42,
-    "symptoms": ["frequent hiccups", "stomach discomfort"],
-    "possible_diagnosis": "Gastric irritation",
-    "advice": "Eat slowly",
-    "medications": ["antacids"]
-  },
-  {
-    "id": 43,
-    "symptoms": ["excessive sweating", "fast pulse", "nervousness"],
-    "possible_diagnosis": "Hyperthyroidism symptoms",
-    "advice": "Consult endocrinologist",
-    "medications": ["thyroid medications"]
-  },
-  {
-    "id": 44,
-    "symptoms": ["dry eyes", "burning sensation", "redness"],
-    "possible_diagnosis": "Dry eye syndrome",
-    "advice": "Use artificial tears",
-    "medications": ["eye drops"]
-  },
-  {
-    "id": 45,
-    "symptoms": ["joint cracking sounds", "mild pain"],
-    "possible_diagnosis": "Joint wear",
-    "advice": "Gentle exercise",
-    "medications": ["pain relievers"]
-  },
+  {"id":36,"category":"Audit","topic":"Tax Audit","question":"When tax audit required?","answer":"If turnover crosses prescribed limit."},
+  {"id":37,"category":"Audit","topic":"GST Audit","question":"Is GST audit mandatory?","answer":"Earlier mandatory, now relaxed."},
+  {"id":38,"category":"Audit","topic":"Statutory Audit","question":"Who requires statutory audit?","answer":"Companies under Companies Act."},
+  {"id":39,"category":"Audit","topic":"Internal Audit","question":"What is internal audit?","answer":"Operational and financial review."},
+  {"id":40,"category":"Audit","topic":"Cost Audit","question":"What is cost audit?","answer":"Audit of cost records."},
 
-  {
-    "id": 46,
-    "symptoms": ["constant hunger", "weight gain", "fatigue"],
-    "possible_diagnosis": "Hormonal imbalance",
-    "advice": "Medical evaluation",
-    "medications": ["hormone therapy"]
-  },
-  {
-    "id": 47,
-    "symptoms": ["tingling fingers", "numbness", "weak grip"],
-    "possible_diagnosis": "Nerve compression",
-    "advice": "Rest affected area",
-    "medications": ["pain relievers"]
-  },
-  {
-    "id": 48,
-    "symptoms": ["red eyes", "itching", "watery discharge"],
-    "possible_diagnosis": "Conjunctivitis",
-    "advice": "Avoid touching eyes",
-    "medications": ["eye drops"]
-  },
-  {
-    "id": 49,
-    "symptoms": ["stomach pain after meals", "bloating", "nausea"],
-    "possible_diagnosis": "Gastritis",
-    "advice": "Avoid acidic food",
-    "medications": ["antacids"]
-  },
-  {
-    "id": 50,
-    "symptoms": ["frequent colds", "weak immunity", "fatigue"],
-    "possible_diagnosis": "Low immunity",
-    "advice": "Healthy diet and sleep",
-    "medications": ["vitamin supplements"]
-  }
+  {"id":41,"category":"Compliance","topic":"ROC Filing","question":"Annual ROC filing forms?","answer":"AOC-4 and MGT-7."},
+  {"id":42,"category":"Compliance","topic":"Due Dates","question":"Why tax due dates important?","answer":"Avoid penalties and interest."},
+  {"id":43,"category":"Compliance","topic":"Book Keeping","question":"Why maintain books?","answer":"Required for audit and tax."},
+  {"id":44,"category":"Compliance","topic":"Digital Signature","question":"Use of DSC?","answer":"For online filings."},
+  {"id":45,"category":"Compliance","topic":"DIN","question":"What is DIN?","answer":"Director Identification Number."},
+
+  {"id":46,"category":"International Tax","topic":"DTAA","question":"Purpose of DTAA?","answer":"Avoid double taxation."},
+  {"id":47,"category":"International Tax","topic":"Transfer Pricing","question":"What is transfer pricing?","answer":"Pricing between related parties."},
+  {"id":48,"category":"International Tax","topic":"PE Concept","question":"What is permanent establishment?","answer":"Tax presence in foreign country."},
+  {"id":49,"category":"International Tax","topic":"Withholding Tax","question":"Tax on foreign payments?","answer":"Deducted at source."},
+  {"id":50,"category":"International Tax","topic":"Foreign Income","question":"Is foreign income taxable?","answer":"Depends on residency."},
+
+  {"id":51,"category":"Penalties","topic":"Late ITR","question":"Penalty for late return?","answer":"Up to ₹5,000."},
+  {"id":52,"category":"Penalties","topic":"GST Late Fee","question":"GST late fee?","answer":"₹50 per day."},
+  {"id":53,"category":"Penalties","topic":"Concealment","question":"Penalty for concealment?","answer":"Up to 200% tax."},
+  {"id":54,"category":"Penalties","topic":"Non Registration GST","question":"Penalty for no GST registration?","answer":"Heavy penalty applies."},
+  {"id":55,"category":"Penalties","topic":"TDS Default","question":"Penalty for TDS delay?","answer":"Interest and fines."},
+
+  {"id":56,"category":"Tax Planning","topic":"ELSS","question":"What is ELSS?","answer":"Tax saving mutual fund."},
+  {"id":57,"category":"Tax Planning","topic":"PPF","question":"What is PPF?","answer":"Long term tax saving scheme."},
+  {"id":58,"category":"Tax Planning","topic":"NPS","question":"What is NPS?","answer":"Pension investment scheme."},
+  {"id":59,"category":"Tax Planning","topic":"Insurance","question":"Tax benefit on insurance?","answer":"Allowed under 80C."},
+  {"id":60,"category":"Tax Planning","topic":"Health Insurance","question":"Tax benefit on health insurance?","answer":"Allowed under 80D."},
+
+  {"id":61,"category":"Companies","topic":"Private Limited","question":"What is private limited company?","answer":"Separate legal entity."},
+  {"id":62,"category":"Companies","topic":"LLP","question":"What is LLP?","answer":"Limited liability partnership."},
+  {"id":63,"category":"Companies","topic":"OPC","question":"What is OPC?","answer":"One person company."},
+  {"id":64,"category":"Companies","topic":"Share Capital","question":"What is share capital?","answer":"Funds raised by issuing shares."},
+  {"id":65,"category":"Companies","topic":"Dividend","question":"What is dividend?","answer":"Profit distributed to shareholders."},
+
+  {"id":66,"category":"Finance","topic":"Working Capital","question":"What is working capital?","answer":"Current assets minus liabilities."},
+  {"id":67,"category":"Finance","topic":"Cash Flow","question":"What is cash flow?","answer":"Movement of money."},
+  {"id":68,"category":"Finance","topic":"Balance Sheet","question":"Purpose of balance sheet?","answer":"Shows financial position."},
+  {"id":69,"category":"Finance","topic":"Profit & Loss","question":"What is P&L account?","answer":"Shows profit or loss."},
+  {"id":70,"category":"Finance","topic":"Budgeting","question":"What is budgeting?","answer":"Financial planning."},
+
+  {"id":71,"category":"Investment","topic":"Mutual Funds","question":"What are mutual funds?","answer":"Pooled investments."},
+  {"id":72,"category":"Investment","topic":"Stocks","question":"What are stocks?","answer":"Company ownership shares."},
+  {"id":73,"category":"Investment","topic":"Bonds","question":"What are bonds?","answer":"Debt instruments."},
+  {"id":74,"category":"Investment","topic":"FD","question":"What is fixed deposit?","answer":"Bank investment scheme."},
+  {"id":75,"category":"Investment","topic":"Gold","question":"Is gold investment taxable?","answer":"Capital gains apply."},
+
+  {"id":76,"category":"Returns","topic":"Belated Return","question":"What is belated return?","answer":"Filed after due date."},
+  {"id":77,"category":"Returns","topic":"Revised Return","question":"What is revised return?","answer":"Correction of filed return."},
+  {"id":78,"category":"Returns","topic":"Defective Return","question":"What is defective return?","answer":"Incomplete filing."},
+  {"id":79,"category":"Returns","topic":"Rectification","question":"What is rectification?","answer":"Error correction request."},
+  {"id":80,"category":"Returns","topic":"Verification","question":"Why verify ITR?","answer":"Completion of filing."},
+
+  {"id":81,"category":"Business","topic":"Startup India","question":"What is Startup India?","answer":"Government startup scheme."},
+  {"id":82,"category":"Business","topic":"MSME Registration","question":"What is MSME registration?","answer":"Small business recognition."},
+  {"id":83,"category":"Business","topic":"Trade License","question":"Why trade license needed?","answer":"Legal business operation."},
+  {"id":84,"category":"Business","topic":"Shop Act","question":"What is shop act registration?","answer":"Business compliance."},
+  {"id":85,"category":"Business","topic":"Import Export Code","question":"What is IEC?","answer":"Required for import export."},
+
+  {"id":86,"category":"Accounting","topic":"Double Entry","question":"What is double entry system?","answer":"Debit and credit method."},
+  {"id":87,"category":"Accounting","topic":"Journal Entry","question":"What is journal entry?","answer":"Record of transaction."},
+  {"id":88,"category":"Accounting","topic":"Ledger","question":"What is ledger?","answer":"Account-wise record."},
+  {"id":89,"category":"Accounting","topic":"Trial Balance","question":"What is trial balance?","answer":"Balance verification tool."},
+  {"id":90,"category":"Accounting","topic":"Final Accounts","question":"What are final accounts?","answer":"Profit & balance sheet."},
+
+  {"id":91,"category":"Law","topic":"Income Tax Act","question":"Purpose of Income Tax Act?","answer":"Governs direct taxes."},
+  {"id":92,"category":"Law","topic":"GST Act","question":"Purpose of GST Act?","answer":"Governs indirect taxes."},
+  {"id":93,"category":"Law","topic":"Companies Act","question":"Purpose of Companies Act?","answer":"Corporate governance law."},
+  {"id":94,"category":"Law","topic":"Partnership Act","question":"Purpose of Partnership Act?","answer":"Regulates partnerships."},
+  {"id":95,"category":"Law","topic":"LLP Act","question":"Purpose of LLP Act?","answer":"Regulates LLPs."},
+
+  {"id":96,"category":"Misc","topic":"Financial Year","question":"What is financial year?","answer":"April to March."},
+  {"id":97,"category":"Misc","topic":"Assessment Year","question":"What is assessment year?","answer":"Year after financial year."},
+  {"id":98,"category":"Misc","topic":"Tax Notice","question":"Why tax notice issued?","answer":"For clarification or compliance."},
+  {"id":99,"category":"Misc","topic":"Scrutiny","question":"What is tax scrutiny?","answer":"Detailed examination."},
+  {"id":100,"category":"Misc","topic":"Appeal","question":"What is tax appeal?","answer":"Challenge assessment order."},
+
+  {"id":101,"category":"Professional","topic":"Role of CA","question":"What does CA do?","answer":"Tax, audit, finance expert."},
+  {"id":102,"category":"Professional","topic":"Ethics","question":"Why ethics important?","answer":"Professional integrity."},
+  {"id":103,"category":"Professional","topic":"Client Confidentiality","question":"Why confidentiality important?","answer":"Trust and compliance."},
+  {"id":104,"category":"Professional","topic":"Due Diligence","question":"What is due diligence?","answer":"Business investigation."},
+  {"id":105,"category":"Professional","topic":"Valuation","question":"What is business valuation?","answer":"Worth assessment."},
+
+  {"id":106,"category":"Planning","topic":"Wealth Management","question":"What is wealth management?","answer":"Managing assets effectively."},
+  {"id":107,"category":"Planning","topic":"Retirement Planning","question":"Why retirement planning?","answer":"Future financial security."},
+  {"id":108,"category":"Planning","topic":"Estate Planning","question":"What is estate planning?","answer":"Asset distribution planning."},
+  {"id":109,"category":"Planning","topic":"Risk Management","question":"What is risk management?","answer":"Loss control strategy."},
+  {"id":110,"category":"Planning","topic":"Tax Optimization","question":"What is tax optimization?","answer":"Legal tax reduction."}
 ]

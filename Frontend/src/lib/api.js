@@ -14,12 +14,13 @@ export const getCsrfToken = () => {
 
 export async function apiFetch(url, options = {}) {
   const method = (options.method || "GET").toUpperCase();
+  const isFormData = typeof FormData !== "undefined" && options.body instanceof FormData;
   const headers = {
     ...(options.headers || {}),
   };
 
   const hasBody = options.body !== undefined && options.body !== null;
-  if (hasBody && !headers["Content-Type"]) {
+  if (hasBody && !isFormData && !headers["Content-Type"]) {
     headers["Content-Type"] = "application/json";
   }
 
@@ -35,7 +36,7 @@ export async function apiFetch(url, options = {}) {
     ...options,
     headers,
     body: hasBody
-      ? (typeof options.body !== "string" ? JSON.stringify(options.body) : options.body)
+      ? (isFormData ? options.body : (typeof options.body !== "string" ? JSON.stringify(options.body) : options.body))
       : options.body,
   });
 

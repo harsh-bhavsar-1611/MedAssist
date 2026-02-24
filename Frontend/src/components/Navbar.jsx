@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Menu, User, Settings, LogOut, HeartPulse, Shield } from 'lucide-react';
+import { Menu, User, Settings, LogOut, HeartPulse, Shield, FileText } from 'lucide-react';
 
-const Navbar = ({ onToggleSidebar, user, onLogout, onOpenProfile, onOpenSettings, onOpenAdmin }) => {
+const Navbar = ({ onToggleSidebar, user, onLogout, onOpenProfile, onOpenSettings, onOpenAdmin, onOpenReports, activeView }) => {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
 
   return (
@@ -29,6 +29,19 @@ const Navbar = ({ onToggleSidebar, user, onLogout, onOpenProfile, onOpenSettings
           <span className="font-semibold capitalize">{activeView}</span>
         </div> */}
       </div>
+
+      <div className="flex items-center gap-2">
+        <button
+          onClick={onOpenReports}
+          className={`inline-flex items-center gap-2 rounded-full border px-2.5 py-1.5 text-xs font-semibold transition md:px-3 ${
+            activeView === 'reports'
+              ? "border-blue-300 bg-blue-50 text-blue-700"
+              : "border-slate-300/60 bg-white/80 text-slate-700 hover:bg-slate-100/90"
+          }`}
+        >
+          <FileText className="w-3.5 h-3.5" />
+          <span className="hidden md:inline">Medical Reports</span>
+        </button>
 
       <div className="relative">
         <button
@@ -85,6 +98,7 @@ const Navbar = ({ onToggleSidebar, user, onLogout, onOpenProfile, onOpenSettings
             </div>
           </>
         )}
+      </div>
       </div>
     </nav>
   );

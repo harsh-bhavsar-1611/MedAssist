@@ -140,7 +140,7 @@ if not groq_api_key:
 
 client = Groq(api_key=groq_api_key)
 
-DATA_PATH = "chat/data/medical_data copy.json"
+DATA_PATH = "chat/data/medical_data.json"
 
 with open(DATA_PATH) as f:
     MEDICAL_DATA = json.load(f)
