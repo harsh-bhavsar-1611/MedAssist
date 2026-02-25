@@ -1,0 +1,22 @@
+{
+  "expo": {
+    "name": "MedAssist",
+    "slug": "medassist-mobile",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "softwareKeyboardLayoutMode": "resize"
+    },
+    "plugins": [
+      "expo-font",
+      "expo-speech-recognition"
+    ]
+  }
+}

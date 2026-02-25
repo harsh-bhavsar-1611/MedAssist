@@ -33,7 +33,12 @@ SECRET_KEY = 'django-insecure-*wo&=fy-59q7a3r8h!nfsjv&#+wwarps0xk54xzmjl^qavsres
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG", "1").lower() in {"1", "true", "yes"}
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
+if DEBUG:
+    # Development convenience for LAN/mobile testing (Expo/physical devices).
+    ALLOWED_HOSTS = ["*"]
+else:
+    raw_allowed_hosts = os.getenv("ALLOWED_HOSTS", "localhost,127.0.0.1")
+    ALLOWED_HOSTS = [host.strip() for host in raw_allowed_hosts.split(",") if host.strip()]
 
 
 # Application definition
@@ -46,6 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework.authtoken',
     'chat',
 ]
 
@@ -141,6 +147,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.TokenAuthentication",
         "rest_framework.authentication.SessionAuthentication",
     ],
     "DEFAULT_PERMISSION_CLASSES": [

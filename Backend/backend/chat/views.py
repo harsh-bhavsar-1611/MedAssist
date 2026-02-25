@@ -13,6 +13,7 @@ from django.shortcuts import get_object_or_404
 from django.http import Http404
 from django.views.decorators.csrf import ensure_csrf_cookie
 from rest_framework.decorators import api_view, permission_classes
+from rest_framework.authtoken.models import Token
 from rest_framework.permissions import AllowAny, IsAuthenticated, IsAdminUser
 
 from .ai_engine.llm_engine import generate_ai_response
@@ -71,6 +72,14 @@ def _public_user(user):
         "is_admin": bool(user.is_staff or user.is_superuser),
         "preferred_theme": _normalize_theme(profile.preferred_theme),
     }
+
+
+def _auth_payload(user, include_token=False):
+    payload = {"user": _public_user(user)}
+    if include_token:
+        token, _ = Token.objects.get_or_create(user=user)
+        payload["token"] = token.key
+    return payload
 
 
 def _admin_user_payload(user):
@@ -258,7 +267,28 @@ def login_api(request):
             return api_error(message="Invalid email or password.", status=401, code="INVALID_CREDENTIALS")
 
         login(request, authed_user)
-        return api_success(data={"user": _public_user(authed_user)}, message="Logged in.")
+        return api_success(data=_auth_payload(authed_user, include_token=True), message="Logged in.")
+    except Exception:
+        return api_error(message="Login failed due to a server error.", status=500, code="SERVER_ERROR")
+
+
+@api_view(["POST"])
+@permission_classes([AllowAny])
+def mobile_token_login_api(request):
+    try:
+        email = (request.data.get("email") or "").strip().lower()
+        password = request.data.get("password") or ""
+        if not email or not password:
+            return api_error(message="Email and password are required.", status=400, code="VALIDATION_ERROR")
+
+        user = User.objects.filter(email__iexact=email).first()
+        if not user:
+            return api_error(message="Invalid email or password.", status=401, code="INVALID_CREDENTIALS")
+        authed_user = authenticate(request, username=user.username, password=password)
+        if not authed_user:
+            return api_error(message="Invalid email or password.", status=401, code="INVALID_CREDENTIALS")
+
+        return api_success(data=_auth_payload(authed_user, include_token=True), message="Logged in.")
     except Exception:
         return api_error(message="Login failed due to a server error.", status=500, code="SERVER_ERROR")
 
@@ -304,7 +334,7 @@ def google_login_api(request):
 
         login(request, user)
         return api_success(
-            data={"user": _public_user(user), "created": created},
+            data={**_auth_payload(user, include_token=True), "created": created},
             message="Google authentication successful.",
         )
     except GoogleTokenError as exc:
@@ -318,6 +348,13 @@ def google_login_api(request):
 def logout_api(request):
     logout(request)
     return api_success(message="Logged out.")
+
+
+@api_view(["POST"])
+@permission_classes([IsAuthenticated])
+def mobile_token_logout_api(request):
+    Token.objects.filter(user=request.user).delete()
+    return api_success(message="Mobile token revoked.")
 
 
 @api_view(["GET"])
