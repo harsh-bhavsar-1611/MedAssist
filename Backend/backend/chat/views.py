@@ -21,7 +21,15 @@ from .ai_engine import llm_engine
 from .api_utils import api_error, api_success
 from .document_parser import parse_uploaded_attachments, persist_ocr_debug_output
 from .google_auth import GoogleTokenError, verify_google_id_token
-from .models import AdminAuditLog, ChatMessage, ChatSession, MedicalDataVersion, MedicalReportAnalysis, UserProfile
+from .models import (
+    AdminAuditLog,
+    ChatMessage,
+    ChatSession,
+    MedicalDataVersion,
+    MedicalReportAnalysis,
+    MedicalReportUpload,
+    UserProfile,
+)
 
 User = get_user_model()
 ALLOWED_THEMES = {"light", "dark"}
@@ -175,11 +183,30 @@ Rules:
     return (completion.choices[0].message.content or "").strip()
 
 
-def _public_report_payload(report):
+def _public_report_payload(report, request=None):
+    uploads = getattr(report, "uploads", None)
+    uploaded_files = []
+    if uploads is not None:
+        for file_item in uploads.all():
+            file_url = file_item.file.url if file_item.file else ""
+            if file_url and request is not None:
+                file_url = request.build_absolute_uri(file_url)
+            uploaded_files.append(
+                {
+                    "id": file_item.id,
+                    "original_name": file_item.original_name,
+                    "content_type": file_item.content_type,
+                    "size": file_item.size,
+                    "uploaded_at": file_item.uploaded_at.isoformat() if file_item.uploaded_at else None,
+                    "uploaded_by": file_item.uploaded_by.email if file_item.uploaded_by else None,
+                    "url": file_url,
+                }
+            )
     return {
         "id": report.id,
         "title": report.title or f"Report {report.id}",
         "file_names": report.file_names or [],
+        "uploaded_files": uploaded_files,
         "analysis": report.analysis or "",
         "warnings": report.warnings or [],
         "created_at": report.created_at.isoformat() if report.created_at else None,
@@ -650,19 +677,29 @@ def get_chat_history(request, session_id):
 @api_view(["GET"])
 @permission_classes([IsAuthenticated])
 def list_report_analyses_api(request):
-    reports = MedicalReportAnalysis.objects.filter(user=request.user).order_by("-created_at")
-    return api_success(data={"reports": [_public_report_payload(report) for report in reports[:50]]})
+    reports = MedicalReportAnalysis.objects.filter(user=request.user).prefetch_related("uploads").order_by("-created_at")
+    return api_success(data={"reports": [_public_report_payload(report, request=request) for report in reports[:50]]})
 
 
 @api_view(["GET", "DELETE"])
 @permission_classes([IsAuthenticated])
 def report_analysis_detail_api(request, report_id):
     try:
-        report = get_object_or_404(MedicalReportAnalysis, id=report_id, user=request.user)
+        report = get_object_or_404(
+            MedicalReportAnalysis.objects.prefetch_related("uploads"),
+            id=report_id,
+            user=request.user,
+        )
         if request.method == "DELETE":
+            for uploaded in report.uploads.all():
+                try:
+                    if uploaded.file:
+                        uploaded.file.delete(save=False)
+                except Exception:
+                    pass
             report.delete()
             return api_success(message="Report deleted successfully.")
-        payload = _public_report_payload(report)
+        payload = _public_report_payload(report, request=request)
         payload["extracted_text"] = report.extracted_text or ""
         return api_success(data={"report": payload})
     except Http404:
@@ -717,6 +754,17 @@ def analyze_report_api(request):
             warnings=warnings,
         )
 
+        for uploaded in uploaded_files:
+            uploaded.seek(0)
+            MedicalReportUpload.objects.create(
+                report=report,
+                uploaded_by=request.user,
+                file=uploaded,
+                original_name=(uploaded.name or "").strip() or "report_file",
+                content_type=(getattr(uploaded, "content_type", "") or "").strip(),
+                size=getattr(uploaded, "size", 0) or 0,
+            )
+
         try:
             persist_ocr_debug_output(
                 session_id=f"report_{report.id}",
@@ -727,7 +775,8 @@ def analyze_report_api(request):
         except Exception:
             pass
 
-        return api_success(data={"report": _public_report_payload(report)}, message="Report analyzed successfully.")
+        report = MedicalReportAnalysis.objects.prefetch_related("uploads").get(id=report.id)
+        return api_success(data={"report": _public_report_payload(report, request=request)}, message="Report analyzed successfully.")
     except Exception:
         return api_error(message="Could not analyze uploaded report.", status=500, code="SERVER_ERROR")
 

@@ -67,3 +67,13 @@ class MedicalReportAnalysis(models.Model):
     analysis = models.TextField(blank=True, default="")
     warnings = models.JSONField(default=list, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
+
+
+class MedicalReportUpload(models.Model):
+    report = models.ForeignKey(MedicalReportAnalysis, on_delete=models.CASCADE, related_name="uploads")
+    uploaded_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name="medical_report_uploads")
+    file = models.FileField(upload_to="medical_reports/%Y/%m/%d/")
+    original_name = models.CharField(max_length=255)
+    content_type = models.CharField(max_length=120, blank=True, default="")
+    size = models.BigIntegerField(default=0)
+    uploaded_at = models.DateTimeField(auto_now_add=True)

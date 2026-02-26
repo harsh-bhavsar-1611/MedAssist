@@ -293,7 +293,20 @@ const ReportsPage = ({ onBack }) => {
                   </button>
                 </div>
                 <p className="text-xs text-slate-500">{selectedReport.created_at ? new Date(selectedReport.created_at).toLocaleString() : "-"}</p>
-                {selectedReport.file_names?.length ? (
+                {selectedReport.uploaded_files?.length ? (
+                  <div className="mt-2 rounded-lg border border-slate-200 bg-slate-50/80 px-2.5 py-2">
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-500">Stored Files</p>
+                    <ul className="mt-1.5 space-y-1 text-xs text-slate-700">
+                      {selectedReport.uploaded_files.map((file) => (
+                        <li key={file.id} className="flex flex-wrap items-center gap-x-2 gap-y-0.5">
+                          <span className="font-medium">{file.original_name}</span>
+                          <span className="text-slate-500">({Math.round((file.size || 0) / 1024)} KB)</span>
+                          <span className="text-slate-500">by {file.uploaded_by || "unknown"}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : selectedReport.file_names?.length ? (
                   <p className="mt-1 text-xs text-slate-600">Files: {selectedReport.file_names.join(", ")}</p>
                 ) : null}
               </div>
