@@ -3,10 +3,12 @@
 Full-stack patient interaction app with:
 - Backend: Django + Django REST Framework
 - Frontend: React + Vite
+- Mobile: React Native + Expo
 
 ## Project Structure
 - `Backend/backend/` Django project (`manage.py`)
 - `Frontend/` React app
+- `Mobile/` React Native app (Expo)
 
 ## Prerequisites
 - Python 3.11+
@@ -42,6 +44,38 @@ npm run dev
 ```
 
 Frontend runs at `http://127.0.0.1:5173`.
+
+## 3) Mobile App Setup
+Open a new terminal from project root:
+
+```powershell
+cd Mobile
+copy .env.example .env
+```
+
+Set API URL in `Mobile/.env`:
+
+```env
+EXPO_PUBLIC_API_BASE_URL=http://10.0.2.2:8000
+```
+
+- Android emulator uses `10.0.2.2` for localhost.
+- iOS simulator can often use `http://127.0.0.1:8000`.
+- Physical device should use your PC's LAN IP (example `http://192.168.1.20:8000`).
+
+Install dependencies and start Expo:
+
+```powershell
+npm install
+npm run start
+```
+
+Mobile auth uses DRF token auth endpoints. Ensure backend migrations are applied:
+
+```powershell
+cd ..\Backend\backend
+python manage.py migrate
+```
 
 ## Environment Variables
 Copy `.env.example` to `.env`, then update values as needed (in project root or where you run Django):
