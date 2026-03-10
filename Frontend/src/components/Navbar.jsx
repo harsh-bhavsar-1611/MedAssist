@@ -36,7 +36,7 @@ const Navbar = ({ onToggleSidebar, user, onLogout, onOpenProfile, onOpenSettings
           className={`inline-flex items-center gap-2 rounded-full border px-2.5 py-1.5 text-xs font-semibold transition md:px-3 ${
             activeView === 'reports'
               ? "border-blue-300 bg-blue-50 text-blue-700"
-              : "border-slate-300/60 bg-white/80 text-slate-700 hover:bg-slate-100/90"
+              : "border-slate-300/60 bg-slate-50/80 text-slate-700 hover:bg-slate-100/90"
           }`}
         >
           <FileText className="w-3.5 h-3.5" />

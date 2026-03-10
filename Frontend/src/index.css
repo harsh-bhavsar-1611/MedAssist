@@ -57,11 +57,22 @@ h4 {
   --color-slate-50: #f8fafc;
   --color-slate-100: #f1f5f9;
   --color-slate-200: #e2e8f0;
+  --color-slate-300: #cbd5e1;
   --color-slate-400: #94a3b8;
   --color-slate-500: #64748b;
   --color-slate-600: #475569;
+  --color-slate-700: #334155;
   --color-slate-800: #1e293b;
   --color-slate-900: #0f172a;
+  
+  --color-emerald-50: #ecfdf5;
+  --color-emerald-200: #a7f3d0;
+  --color-emerald-700: #047857;
+
+  --color-red-50: #fef2f2;
+  --color-red-200: #fecaca;
+  --color-red-600: #dc2626;
+  --color-red-700: #b91c1c;
   --color-blue-600: #2563eb;
   --color-blue-700: #1d4ed8;
   --scrollbar-track: rgba(226, 232, 240, 0.6);
@@ -86,11 +97,22 @@ h4 {
   --color-slate-50: #0b1325;
   --color-slate-100: #111b31;
   --color-slate-200: #1c2a46;
+  --color-slate-300: #2a3f65;
   --color-slate-400: #8194b7;
   --color-slate-500: #9daed0;
   --color-slate-600: #b7c7e3;
+  --color-slate-700: #c0cdf0;
   --color-slate-800: #d5e0f3;
   --color-slate-900: #eaf1ff;
+  
+  --color-emerald-50: #022c22;
+  --color-emerald-200: #065f46;
+  --color-emerald-700: #34d399;
+
+  --color-red-50: #450a0a;
+  --color-red-200: #991b1b;
+  --color-red-600: #f87171;
+  --color-red-700: #fca5a5;
   --color-blue-600: #3b82f6;
   --color-blue-700: #2563eb;
   --scrollbar-track: rgba(28, 42, 70, 0.72);
