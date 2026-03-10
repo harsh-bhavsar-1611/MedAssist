@@ -64,7 +64,7 @@ h4 {
   --color-slate-700: #334155;
   --color-slate-800: #1e293b;
   --color-slate-900: #0f172a;
-  
+
   --color-emerald-50: #ecfdf5;
   --color-emerald-200: #a7f3d0;
   --color-emerald-700: #047857;
@@ -104,7 +104,7 @@ h4 {
   --color-slate-700: #c0cdf0;
   --color-slate-800: #d5e0f3;
   --color-slate-900: #eaf1ff;
-  
+
   --color-emerald-50: #022c22;
   --color-emerald-200: #065f46;
   --color-emerald-700: #34d399;
@@ -113,8 +113,14 @@ h4 {
   --color-red-200: #991b1b;
   --color-red-600: #f87171;
   --color-red-700: #fca5a5;
-  --color-blue-600: #3b82f6;
-  --color-blue-700: #2563eb;
+  --color-blue-50: #0d1629;
+  --color-blue-100: #162444;
+  --color-blue-200: #1d335d;
+  --color-blue-300: #2a4c8a;
+  --color-blue-400: #60a5fa;
+  --color-blue-500: #3b82f6;
+  --color-blue-600: #2563eb;
+  --color-blue-700: #1d4ed8;
   --scrollbar-track: rgba(28, 42, 70, 0.72);
   --scrollbar-thumb: linear-gradient(180deg, rgba(56, 189, 248, 0.75), rgba(59, 130, 246, 0.75));
   --scrollbar-thumb-border: rgba(11, 19, 37, 0.85);

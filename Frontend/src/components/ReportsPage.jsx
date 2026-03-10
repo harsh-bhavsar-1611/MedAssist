@@ -149,7 +149,7 @@ const ReportsPage = ({ onBack }) => {
     return (
       <div className="space-y-3">
         {sections.map((section, idx) => (
-          <article key={`${idx}-${section.heading}`} className="rounded-xl border border-slate-200 bg-white/80 p-3">
+          <article key={`${idx}-${section.heading}`} className="rounded-xl border border-slate-200 bg-slate-50/80 p-3">
             <h4 className="text-sm font-bold text-slate-900">{section.heading}</h4>
             <div className="mt-2 space-y-1.5 text-sm text-slate-800">
               {section.items.map((line, itemIdx) => {
@@ -188,7 +188,7 @@ const ReportsPage = ({ onBack }) => {
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">Medical Reports</p>
             <h2 className="text-xl font-bold tracking-tight text-slate-900">Upload and Analyze Reports</h2>
           </div>
-          <button onClick={onBack} className="rounded-lg border border-slate-300 bg-white px-3 py-1.5 text-sm font-semibold hover:bg-slate-50">
+          <button onClick={onBack} className="rounded-lg border border-slate-300 bg-slate-50 px-3 py-1.5 text-sm font-semibold hover:bg-slate-100/80">
             Back to Chat
           </button>
         </div>
@@ -205,9 +205,9 @@ const ReportsPage = ({ onBack }) => {
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               placeholder="Optional title"
-              className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm outline-none focus:border-blue-400"
+              className="w-full rounded-lg border border-slate-300 bg-slate-50 px-3 py-2 text-sm outline-none focus:border-blue-400"
             />
-            <label className="flex cursor-pointer items-center gap-2 rounded-lg border border-dashed border-slate-300 bg-white/80 px-3 py-2 text-sm text-slate-600 hover:bg-slate-50">
+            <label className="flex cursor-pointer items-center gap-2 rounded-lg border border-dashed border-slate-300 bg-slate-50/80 px-3 py-2 text-sm text-slate-600 hover:bg-slate-100/80">
               <FileUp className="h-4 w-4 text-blue-600" />
               <span>{files.length ? `${files.length} file(s) selected` : "Choose medical report files"}</span>
               <input
@@ -230,7 +230,7 @@ const ReportsPage = ({ onBack }) => {
           <div className="mt-3 min-h-0 flex-1 overflow-y-auto">
             <div className="mb-2 flex items-center justify-between">
               <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">History</p>
-              <button onClick={loadReports} className="rounded-md border border-slate-300 bg-white px-2 py-1 text-xs font-semibold">
+              <button onClick={loadReports} className="rounded-md border border-slate-300 bg-slate-50 px-2 py-1 text-xs font-semibold">
                 {loadingReports ? "..." : "Refresh"}
               </button>
             </div>
@@ -241,7 +241,7 @@ const ReportsPage = ({ onBack }) => {
                   className={`w-full rounded-xl border px-3 py-2 text-left text-sm transition ${
                     selectedReport?.id === report.id
                       ? "border-blue-300 bg-blue-50/70 text-blue-800"
-                      : "border-slate-200 bg-white/70 text-slate-700 hover:bg-slate-50"
+                      : "border-slate-200 bg-slate-50/80 text-slate-700 hover:bg-slate-100/80"
                   }`}
                 >
                   <div className="flex items-start justify-between gap-2">
@@ -317,7 +317,7 @@ const ReportsPage = ({ onBack }) => {
                 </div>
               ) : null}
 
-              <article className="rounded-xl border border-slate-200 bg-white/75 px-4 py-3">
+              <article className="rounded-xl border border-slate-200 bg-slate-50/80 px-4 py-3">
                 <p className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Analysis</p>
                 {renderFormattedAnalysis(selectedReport.analysis)}
               </article>

@@ -10,7 +10,7 @@ export const OverviewTab = ({ overview, loadingOverview, loadOverview }) => {
       <div className="frost-panel rounded-2xl p-4 md:p-5">
         <div className="mb-3 flex items-center justify-between">
           <h2 className="text-xl font-bold">Overview</h2>
-          <button onClick={loadOverview} className="rounded-lg border border-slate-300 bg-white/80 px-3 py-1.5 text-sm font-semibold">
+          <button onClick={loadOverview} className="rounded-lg border border-slate-300 bg-slate-50/80 px-3 py-1.5 text-sm font-semibold">
             {loadingOverview ? "Refreshing..." : "Refresh"}
           </button>
         </div>

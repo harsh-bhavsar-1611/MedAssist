@@ -207,7 +207,7 @@ const SettingsPage = ({ preferredTheme, onThemeUpdated, onBack }) => {
             <button
               type="submit"
               disabled={passwordSaving}
-              className="inline-flex items-center gap-2 rounded-xl bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white transition hover:brightness-110 disabled:opacity-60"
+              className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-sky-500 to-blue-600 px-4 py-2.5 text-sm font-semibold text-white shadow-md shadow-blue-500/25 transition hover:brightness-105 disabled:opacity-60"
             >
               <Save className="h-4 w-4" />
               {passwordSaving ? "Updating..." : "Change Password"}

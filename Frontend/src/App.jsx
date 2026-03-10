@@ -51,6 +51,12 @@ function App() {
     bootstrap();
   }, []);
 
+  useEffect(() => {
+    if (!user && !authLoading) {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  }, [user, authLoading]);
+
   if (authLoading) {
     return <div className="h-screen bg-slate-100 flex items-center justify-center text-slate-500">Loading...</div>;
   }

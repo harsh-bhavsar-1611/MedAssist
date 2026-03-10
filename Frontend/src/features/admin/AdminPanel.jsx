@@ -385,7 +385,7 @@ const AdminPanel = ({ user, onBackToApp, onLogout }) => {
                   onMouseEnter={() => setHoveredTab(tab.id)}
                   onMouseLeave={() => setHoveredTab("")}
                   className={`group flex w-full items-center justify-between rounded-xl px-3 py-2.5 text-left text-sm font-semibold transition ${
-                    isSelected ? "bg-slate-900 text-white" : "text-slate-700 hover:bg-slate-100/80"
+                    isSelected ? "bg-blue-600 text-white shadow-md shadow-blue-500/20" : "text-slate-700 hover:bg-slate-100/80"
                   }`}
                 >
                   <span className="flex items-center gap-2">

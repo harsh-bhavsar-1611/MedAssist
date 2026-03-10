@@ -40,40 +40,40 @@ export const MedicalDataTab = ({
         <div className="mb-3 flex flex-wrap items-center gap-2">
           <h2 className="mr-auto text-xl font-bold">Medical JSON Manager</h2>
           <span className="text-xs text-slate-500">Entries: {medicalStats?.entries ?? medicalRows.length}</span>
-          <button onClick={loadMedicalRows} className="rounded-lg border border-slate-300 bg-white/80 px-3 py-1.5 text-sm font-semibold">
+          <button onClick={loadMedicalRows} className="rounded-lg border border-slate-300 bg-slate-50/80 px-3 py-1.5 text-sm font-semibold">
             {loadingMedical ? "Loading..." : "Reload"}
           </button>
-          <button onClick={saveMedicalData} className="rounded-lg bg-slate-900 px-3 py-1.5 text-sm font-semibold text-white">
+          <button onClick={saveMedicalData} className="rounded-lg bg-blue-600 px-3 py-1.5 text-sm font-semibold text-white hover:bg-blue-500 transition">
             {savingMedical ? "Saving..." : "Save Changes"}
           </button>
         </div>
 
-        <div className="rounded-2xl border border-slate-200 bg-white/70 p-3 md:p-4">
+        <div className="rounded-2xl border border-slate-200 bg-slate-50/70 p-3 md:p-4">
           <p className="mb-3 text-sm font-semibold">Add New Record</p>
           <div className="grid gap-3 md:grid-cols-2">
             <input
               value={medicalForm.symptoms}
               onChange={(event) => onMedicalFormChange("symptoms", event.target.value)}
               placeholder="Symptoms (comma separated)"
-              className="rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm outline-none focus:border-blue-400"
+              className="rounded-lg border border-slate-300 bg-slate-50 px-3 py-2 text-sm outline-none focus:border-blue-400"
             />
             <input
               value={medicalForm.medications}
               onChange={(event) => onMedicalFormChange("medications", event.target.value)}
               placeholder="Medications (comma separated)"
-              className="rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm outline-none focus:border-blue-400"
+              className="rounded-lg border border-slate-300 bg-slate-50 px-3 py-2 text-sm outline-none focus:border-blue-400"
             />
             <input
               value={medicalForm.possible_diagnosis}
               onChange={(event) => onMedicalFormChange("possible_diagnosis", event.target.value)}
               placeholder="Possible diagnosis"
-              className="rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm outline-none focus:border-blue-400"
+              className="rounded-lg border border-slate-300 bg-slate-50 px-3 py-2 text-sm outline-none focus:border-blue-400"
             />
             <input
               value={medicalForm.advice}
               onChange={(event) => onMedicalFormChange("advice", event.target.value)}
               placeholder="Advice"
-              className="rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm outline-none focus:border-blue-400"
+              className="rounded-lg border border-slate-300 bg-slate-50 px-3 py-2 text-sm outline-none focus:border-blue-400"
             />
           </div>
           <button onClick={addMedicalEntry} className="mt-3 rounded-lg bg-blue-600 px-3 py-2 text-sm font-semibold text-white hover:bg-blue-500">
@@ -81,7 +81,7 @@ export const MedicalDataTab = ({
           </button>
         </div>
 
-        <div className="mt-4 overflow-x-auto rounded-2xl border border-slate-200 bg-white/70">
+        <div className="mt-4 overflow-x-auto rounded-2xl border border-slate-200 bg-slate-50/70">
           <table className="min-w-full text-sm">
             <thead>
               <tr className="border-b border-slate-200 text-left text-slate-600">
@@ -102,7 +102,7 @@ export const MedicalDataTab = ({
                       <div className="flex gap-2">
                         <button
                           onClick={() => toggleRowExpanded(row.id)}
-                          className="inline-flex items-center gap-1 rounded-md border border-slate-300 bg-white px-2 py-1 text-xs font-semibold"
+                          className="inline-flex items-center gap-1 rounded-md border border-slate-300 bg-slate-50 px-2 py-1 text-xs font-semibold"
                         >
                           {expandedRows[row.id] ? <ChevronUp className="h-3.5 w-3.5" /> : <ChevronDown className="h-3.5 w-3.5" />}
                           View More
@@ -137,7 +137,7 @@ export const MedicalDataTab = ({
           <button
             disabled={medicalPage <= 1}
             onClick={() => setMedicalPage((prev) => Math.max(1, prev - 1))}
-            className="rounded-lg border border-slate-300 bg-white/80 px-3 py-1.5 text-sm font-semibold disabled:opacity-50"
+            className="rounded-lg border border-slate-300 bg-slate-50/80 px-3 py-1.5 text-sm font-semibold disabled:opacity-50"
           >
             Prev
           </button>
@@ -147,18 +147,18 @@ export const MedicalDataTab = ({
           <button
             disabled={medicalPage >= medicalTotalPages}
             onClick={() => setMedicalPage((prev) => Math.min(medicalTotalPages, prev + 1))}
-            className="rounded-lg border border-slate-300 bg-white/80 px-3 py-1.5 text-sm font-semibold disabled:opacity-50"
+            className="rounded-lg border border-slate-300 bg-slate-50/80 px-3 py-1.5 text-sm font-semibold disabled:opacity-50"
           >
             Next
           </button>
         </div>
 
-        <div className="mt-6 rounded-2xl border border-slate-200 bg-white/70 p-3 md:p-4">
+        <div className="mt-6 rounded-2xl border border-slate-200 bg-slate-50/70 p-3 md:p-4">
           <div className="mb-3 flex items-center justify-between">
             <p className="text-sm font-semibold">Version History</p>
             <button
               onClick={() => loadMedicalVersions(versionPage)}
-              className="rounded-lg border border-slate-300 bg-white px-2.5 py-1 text-xs font-semibold"
+              className="rounded-lg border border-slate-300 bg-slate-50 px-2.5 py-1 text-xs font-semibold"
             >
               {loadingVersions ? "Loading..." : "Refresh"}
             </button>
@@ -199,7 +199,7 @@ export const MedicalDataTab = ({
             <button
               disabled={versionPagination.page <= 1}
               onClick={() => setVersionPage((prev) => Math.max(1, prev - 1))}
-              className="rounded-lg border border-slate-300 bg-white/80 px-2.5 py-1 text-xs font-semibold disabled:opacity-50"
+              className="rounded-lg border border-slate-300 bg-slate-50/80 px-2.5 py-1 text-xs font-semibold disabled:opacity-50"
             >
               Prev
             </button>
@@ -209,7 +209,7 @@ export const MedicalDataTab = ({
             <button
               disabled={(versionPagination.page || 1) >= (versionPagination.total_pages || 1)}
               onClick={() => setVersionPage((prev) => Math.min(versionPagination.total_pages || 1, prev + 1))}
-              className="rounded-lg border border-slate-300 bg-white/80 px-2.5 py-1 text-xs font-semibold disabled:opacity-50"
+              className="rounded-lg border border-slate-300 bg-slate-50/80 px-2.5 py-1 text-xs font-semibold disabled:opacity-50"
             >
               Next
             </button>
@@ -221,7 +221,7 @@ export const MedicalDataTab = ({
 };
 
 const DetailItem = ({ label, value }) => (
-  <div className="rounded-lg border border-slate-200 bg-white/70 p-2">
+  <div className="rounded-lg border border-slate-200 bg-slate-50/70 p-2">
     <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-slate-500">{label}</p>
     <p className="mt-1 text-xs text-slate-700">{value || "-"}</p>
   </div>

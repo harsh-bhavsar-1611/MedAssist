@@ -6,16 +6,16 @@ export const HealthTab = ({ health, loadingHealth, probeModel, setProbeModel, lo
     <section className="frost-panel rounded-2xl p-4 md:p-5">
       <div className="mb-3 flex flex-wrap items-center gap-2">
         <h2 className="mr-auto text-xl font-bold">System Health</h2>
-        <label className="flex items-center gap-2 rounded-lg bg-white/80 px-2 py-1 text-xs">
+        <label className="flex items-center gap-2 rounded-lg bg-slate-50/80 px-2 py-1 text-xs">
           <input type="checkbox" checked={probeModel} onChange={(event) => setProbeModel(event.target.checked)} />
           Run model probe
         </label>
-        <button onClick={() => loadHealth(probeModel)} className="rounded-lg border border-slate-300 bg-white/80 px-3 py-1.5 text-sm font-semibold">
+        <button onClick={() => loadHealth(probeModel)} className="rounded-lg border border-slate-300 bg-slate-50/80 px-3 py-1.5 text-sm font-semibold">
           {loadingHealth ? "Checking..." : "Check Health"}
         </button>
       </div>
 
-      <div className="mb-3 rounded-xl border border-slate-200 bg-white/70 p-3">
+      <div className="mb-3 rounded-xl border border-slate-200 bg-slate-50/70 p-3">
         <p className={`text-sm font-bold ${health?.status === "healthy" ? "text-emerald-700" : "text-amber-700"}`}>
           Overall: {(health?.status || "-").toUpperCase()}
         </p>
@@ -29,7 +29,7 @@ export const HealthTab = ({ health, loadingHealth, probeModel, setProbeModel, lo
       </div>
 
       {health?.probe && (
-        <div className="mt-3 rounded-xl border border-slate-200 bg-white/70 p-3">
+        <div className="mt-3 rounded-xl border border-slate-200 bg-slate-50/70 p-3">
           <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Live Model Probe</p>
           <p className={`mt-2 text-sm font-semibold ${health.probe.ok ? "text-emerald-700" : "text-red-700"}`}>
             {health.probe.ok ? "Success" : "Failed"}
@@ -37,7 +37,7 @@ export const HealthTab = ({ health, loadingHealth, probeModel, setProbeModel, lo
           <p className="mt-1 text-sm text-slate-700">{health.probe.detail}</p>
         </div>
       )}
-      <div className="mt-3 rounded-xl border border-slate-200 bg-white/70 p-3">
+      <div className="mt-3 rounded-xl border border-slate-200 bg-slate-50/70 p-3">
         <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Recent Errors</p>
         {!health?.recent_errors?.length ? (
           <p className="mt-2 text-sm text-slate-500">No recent admin/system errors logged.</p>
@@ -59,7 +59,7 @@ export const HealthTab = ({ health, loadingHealth, probeModel, setProbeModel, lo
 const HealthCard = ({ title, icon, check }) => {
   const IconComponent = icon;
   return (
-    <article className="rounded-xl border border-slate-200 bg-white/70 p-3">
+    <article className="rounded-xl border border-slate-200 bg-slate-50/70 p-3">
       <div className="flex items-center gap-2">
         <IconComponent className="h-4 w-4 text-slate-600" />
         <p className="text-sm font-semibold">{title}</p>
@@ -75,11 +75,11 @@ export const AuditTab = ({ auditLogs, auditLoading, auditPage, setAuditPage, aud
     <section className="frost-panel rounded-2xl p-4 md:p-5">
       <div className="mb-3 flex items-center justify-between">
         <h2 className="text-xl font-bold">Audit Logs</h2>
-        <button onClick={() => loadAuditLogs(auditPage)} className="rounded-lg border border-slate-300 bg-white/80 px-3 py-1.5 text-sm font-semibold">
+        <button onClick={() => loadAuditLogs(auditPage)} className="rounded-lg border border-slate-300 bg-slate-50/80 px-3 py-1.5 text-sm font-semibold">
           {auditLoading ? "Loading..." : "Refresh"}
         </button>
       </div>
-      <div className="overflow-x-auto rounded-2xl border border-slate-200 bg-white/70">
+      <div className="overflow-x-auto rounded-2xl border border-slate-200 bg-slate-50/70">
         <table className="min-w-full text-sm">
           <thead>
             <tr className="border-b border-slate-200 text-left text-slate-600">
@@ -109,7 +109,7 @@ export const AuditTab = ({ auditLogs, auditLoading, auditPage, setAuditPage, aud
         <button
           disabled={auditPagination.page <= 1}
           onClick={() => setAuditPage((prev) => Math.max(1, prev - 1))}
-          className="rounded-lg border border-slate-300 bg-white/80 px-3 py-1.5 text-sm font-semibold disabled:opacity-50"
+          className="rounded-lg border border-slate-300 bg-slate-50/80 px-3 py-1.5 text-sm font-semibold disabled:opacity-50"
         >
           Prev
         </button>
@@ -119,7 +119,7 @@ export const AuditTab = ({ auditLogs, auditLoading, auditPage, setAuditPage, aud
         <button
           disabled={(auditPagination.page || 1) >= (auditPagination.total_pages || 1)}
           onClick={() => setAuditPage((prev) => Math.min(auditPagination.total_pages || 1, prev + 1))}
-          className="rounded-lg border border-slate-300 bg-white/80 px-3 py-1.5 text-sm font-semibold disabled:opacity-50"
+          className="rounded-lg border border-slate-300 bg-slate-50/80 px-3 py-1.5 text-sm font-semibold disabled:opacity-50"
         >
           Next
         </button>

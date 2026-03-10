@@ -23,7 +23,7 @@ export const MetricCard = ({ icon, title, value, tone }) => {
 };
 
 export const SmallStat = ({ label, value }) => (
-  <article className="rounded-xl border border-slate-200 bg-white/70 p-3">
+  <article className="rounded-xl border border-slate-200 bg-slate-50/70 p-3">
     <p className="text-xs uppercase tracking-[0.14em] text-slate-500">{label}</p>
     <p className="mt-1 text-xl font-bold">{value ?? "-"}</p>
   </article>

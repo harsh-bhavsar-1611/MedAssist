@@ -32,7 +32,7 @@ export const UsersTab = ({
               setUserQuery(event.target.value);
             }}
             placeholder="Search user by name/email"
-            className="w-full rounded-lg border border-slate-300 bg-white/80 px-3 py-2 text-sm outline-none focus:border-blue-400 md:w-80"
+            className="w-full rounded-lg border border-slate-300 bg-slate-50/80 px-3 py-2 text-sm outline-none focus:border-blue-400 md:w-80"
           />
           <select
             value={userRoleFilter}
@@ -40,7 +40,7 @@ export const UsersTab = ({
               setUserPage(1);
               setUserRoleFilter(event.target.value);
             }}
-            className="rounded-lg border border-slate-300 bg-white/80 px-3 py-2 text-sm"
+            className="rounded-lg border border-slate-300 bg-slate-50/80 px-3 py-2 text-sm"
           >
             <option value="all">All Roles</option>
             <option value="admin">Admins</option>
@@ -52,7 +52,7 @@ export const UsersTab = ({
               setUserPage(1);
               setUserStatusFilter(event.target.value);
             }}
-            className="rounded-lg border border-slate-300 bg-white/80 px-3 py-2 text-sm"
+            className="rounded-lg border border-slate-300 bg-slate-50/80 px-3 py-2 text-sm"
           >
             <option value="all">All Status</option>
             <option value="active">Active</option>
@@ -64,7 +64,7 @@ export const UsersTab = ({
               setUserPage(1);
               setUserSort(event.target.value);
             }}
-            className="rounded-lg border border-slate-300 bg-white/80 px-3 py-2 text-sm"
+            className="rounded-lg border border-slate-300 bg-slate-50/80 px-3 py-2 text-sm"
           >
             <option value="date_joined">Joined Date</option>
             <option value="last_login">Last Login</option>
@@ -79,14 +79,14 @@ export const UsersTab = ({
               setUserPage(1);
               setUserDir(event.target.value);
             }}
-            className="rounded-lg border border-slate-300 bg-white/80 px-3 py-2 text-sm"
+            className="rounded-lg border border-slate-300 bg-slate-50/80 px-3 py-2 text-sm"
           >
             <option value="desc">Desc</option>
             <option value="asc">Asc</option>
           </select>
           <button
             onClick={() => loadUsers(userQuery, userRoleFilter, userStatusFilter, userSort, userDir, userPage)}
-            className="rounded-lg border border-slate-300 bg-white/80 px-3 py-2 text-sm font-semibold"
+            className="rounded-lg border border-slate-300 bg-slate-50/80 px-3 py-2 text-sm font-semibold"
           >
             {loadingUsers ? "Loading..." : "Search"}
           </button>
@@ -96,7 +96,7 @@ export const UsersTab = ({
                 setUserPage(1);
                 setUserQuery("");
               }}
-              className="rounded-lg border border-slate-300 bg-white/80 px-3 py-2 text-sm font-semibold hover:bg-white"
+              className="rounded-lg border border-slate-300 bg-slate-50/80 px-3 py-2 text-sm font-semibold hover:bg-slate-50"
             >
               Clear
             </button>
@@ -118,7 +118,7 @@ export const UsersTab = ({
           <button
             disabled={userPagination.page <= 1}
             onClick={() => setUserPage((prev) => Math.max(1, prev - 1))}
-            className="rounded-lg border border-slate-300 bg-white/80 px-3 py-1.5 text-sm font-semibold disabled:opacity-50"
+            className="rounded-lg border border-slate-300 bg-slate-50/80 px-3 py-1.5 text-sm font-semibold disabled:opacity-50"
           >
             Prev
           </button>
@@ -128,7 +128,7 @@ export const UsersTab = ({
           <button
             disabled={(userPagination.page || 1) >= (userPagination.total_pages || 1)}
             onClick={() => setUserPage((prev) => Math.min(userPagination.total_pages || 1, prev + 1))}
-            className="rounded-lg border border-slate-300 bg-white/80 px-3 py-1.5 text-sm font-semibold disabled:opacity-50"
+            className="rounded-lg border border-slate-300 bg-slate-50/80 px-3 py-1.5 text-sm font-semibold disabled:opacity-50"
           >
             Next
           </button>
@@ -144,7 +144,7 @@ const UsersTable = ({ rows, onToggle, savingUserId }) => {
   }
 
   return (
-    <div className="overflow-x-auto rounded-2xl border border-slate-200 bg-white/70">
+    <div className="overflow-x-auto rounded-2xl border border-slate-200 bg-slate-50/70">
       <table className="min-w-full text-sm">
         <thead>
           <tr className="border-b border-slate-200 text-left text-slate-600">
@@ -180,14 +180,14 @@ const UsersTable = ({ rows, onToggle, savingUserId }) => {
                     <button
                       disabled={savingUserId === row.id || lockAdmin}
                       onClick={() => onToggle(row, "is_active", !row.is_active)}
-                      className="rounded-md border border-slate-300 bg-white px-2 py-1 text-xs font-semibold disabled:cursor-not-allowed disabled:opacity-50"
+                      className="rounded-md border border-slate-300 bg-slate-50 px-2 py-1 text-xs font-semibold disabled:cursor-not-allowed disabled:opacity-50"
                     >
                       {row.is_active ? "Deactivate" : "Activate"}
                     </button>
                     <button
                       disabled={savingUserId === row.id || row.is_superuser || lockAdmin}
                       onClick={() => onToggle(row, "is_staff", !row.is_staff)}
-                      className="rounded-md border border-slate-300 bg-white px-2 py-1 text-xs font-semibold disabled:cursor-not-allowed disabled:opacity-50"
+                      className="rounded-md border border-slate-300 bg-slate-50 px-2 py-1 text-xs font-semibold disabled:cursor-not-allowed disabled:opacity-50"
                     >
                       {row.is_staff ? "Remove Admin" : "Make Admin"}
                     </button>
