@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Layout from "./components/Layout";
 import AuthPage from "./components/AuthPage";
 import LandingPage from "./components/LandingPage";
-import AdminPanel from "./components/AdminPanel";
+import AdminPanel from "./features/admin/AdminPanel";
 import AdminAuthPage from "./components/AdminAuthPage";
 import { apiFetch } from "./lib/api";
 

@@ -2,14 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 
 # Create your models here.
-# class ChatSession(models.Model):
-#     created_at = models.DateTimeField(auto_now_add=True)
-
-# class ChatMessage(models.Model):
-#     session = models.ForeignKey(ChatSession, on_delete=models.CASCADE)
-#     user_message = models.TextField()
-#     bot_response = models.TextField()
-#     created_at = models.DateTimeField(auto_now_add=True)
 
 class ChatSession(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="chat_sessions", null=True, blank=True)
