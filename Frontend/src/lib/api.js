@@ -7,10 +7,21 @@ export class ApiError extends Error {
   }
 }
 
+const API_BASE = import.meta.env.VITE_API_BASE || "";
+
 export const getCsrfToken = () => {
   const match = document.cookie.match(/(?:^|;\s*)csrftoken=([^;]+)/);
   return match ? decodeURIComponent(match[1]) : "";
 };
+
+export async function ensureCsrf() {
+  const token = getCsrfToken();
+  if (!token) {
+    await fetch(`${API_BASE}/api/auth/csrf/`, {
+      credentials: "include"
+    });
+  }
+}
 
 export async function apiFetch(url, options = {}) {
   const method = (options.method || "GET").toUpperCase();
@@ -25,13 +36,14 @@ export async function apiFetch(url, options = {}) {
   }
 
   if (!["GET", "HEAD", "OPTIONS"].includes(method)) {
-    const token = getCsrfToken();
-    if (token) {
-      headers["X-CSRFToken"] = token;
-    }
+  await ensureCsrf();   // ensure cookie exists
+  const token = getCsrfToken();
+  if (token) {
+    headers["X-CSRFToken"] = token;
   }
+}
 
-  const response = await fetch(url, {
+  const response = await fetch(`${API_BASE}${url}`, {
     credentials: "include",
     ...options,
     headers,

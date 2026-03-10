@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://13.206.7.190',
+        target: 'https://patient-api.duckdns.org',
         changeOrigin: true,
         secure: false, // For local dev
       },
